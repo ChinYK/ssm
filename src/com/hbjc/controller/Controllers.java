@@ -14,11 +14,9 @@ import com.hbjc.service.UsersService;
 @RequestMapping(value="/regist")
 public class Controllers {
 	private Logger logger = Logger.getLogger(getClass());  
+	
 	@Autowired
 	private UsersService service;
-	public void setService(UsersService service) {  //通过set方法注入属性
-		this.service = service;
-	}
 	
 	@RequestMapping(value="/addUsers",method=RequestMethod.POST)
 	public String save(Model model,Users users){

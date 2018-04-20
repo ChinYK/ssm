@@ -14,6 +14,10 @@
     <param-name>contextConfigLocation</param-name>  
     <param-value>classpath:spring.xml;classpath:mybatis.xml</param-value>  
   </context-param>  
+  <context-param>
+        <param-name>log4jConfigLocation</param-name>
+        <param-value>classpath:log4j.properties</param-value>
+  </context-param>
   <!-- 过滤通过用于处理项目中的乱码问题，该过滤器位于org.springframework.web.filter包中，指向类CharacterEncodingFilter -->  
   <filter>  
     <description>字符集过滤器</description>  

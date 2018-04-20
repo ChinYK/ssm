@@ -10,7 +10,8 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 <context:component-scan base-package="com.hbjc.controller" /> 
  <!-- 对静态资源文件的访问,因为Spring MVC会拦截所有请求,导致jsp页面中对js和CSS的引用也被拦截,配置后可以把对资源的请求交给项目的
     默认拦截器而不是Spring MVC-->
- <mvc:resources mapping="/static/**" location="/WEB-INF/static/" /> 
+  <mvc:annotation-driven />
+ <mvc:resources mapping="/static/**/" location="/WEB-INF/static/" /> 
 <!-- 对模型视图名称的解析，即在模型视图名称添加前后缀    controller方法返回值+.jsp-->  
 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/WEB-INF/view/" p:suffix=".jsp" />  
       

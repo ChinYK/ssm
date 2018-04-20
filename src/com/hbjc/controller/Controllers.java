@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.hbjc.domain.Users;
 import com.hbjc.service.UsersService;
@@ -19,10 +20,11 @@ public class Controllers {
 	private UsersService service;
 	
 	@RequestMapping(value="/addUsers",method=RequestMethod.POST)
-	public String save(Model model,Users users){
+	public ModelAndView  save(Model model,Users users){
+		ModelAndView mv = new ModelAndView("success");
 		logger.info("addUsers:"+users.getUserName());
 		service.saveUsers(users);
-		return "success";
+		return mv;
 	}
 	
 }

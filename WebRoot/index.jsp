@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>员工注册页</title>
+    <title>注册页</title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -18,15 +18,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+	<scipt type="text/javascript" src="/static/javascript/jquery-3.3.1/jquery-3.3.1.min.js"></scipt>
+  	
   </head>
   
   <body style="text-align: center;" >
     <form action="/regist/addUsers.do" method="post">
     	<table>
-    		<tr><th colspan="2" align="center">学生注册</th></tr>
-    		<tr><td>用户名</td><td><input name="userName" value=""/> </td></tr>
-    		<tr><td>密码</td><td><input name="password" value=""/></td></tr>
-    		<tr><td colspan="2" align="center"><button type="submit" value="确认注册">确认注册</button> </td></tr>
+    		<tr>
+    			<th colspan="2" align="center">注册</th>
+    		</tr>
+    		<tr>
+    			<td>用户名</td><td><input id="userName" name="userName" value="" onclick="aa()"/> </td>
+    		</tr>
+    		<tr>
+    			<td>密码</td><td><input id="password" name="password" value=""/></td>
+    		</tr>
+    		<tr>
+    			<td colspan="2" align="center"><button type="submit" value="确认注册">确认注册</button> </td>
+    		</tr>
     	</table>
     </form>
   </body>

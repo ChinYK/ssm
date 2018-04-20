@@ -12,7 +12,32 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
     默认拦截器而不是Spring MVC-->
   <mvc:annotation-driven />
  <mvc:resources mapping="/static/**/" location="/WEB-INF/static/" /> 
-<!-- 对模型视图名称的解析，即在模型视图名称添加前后缀    controller方法返回值+.jsp-->  
-<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/WEB-INF/view/" p:suffix=".jsp" />  
-      
+ 
+	<!--jsp视图解析器-->
+	<bean id="jspViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+	    <property name="order" value="1"/>
+	    <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+	    <property name="prefix" value="/WEB-INF/view/"/>
+	    <property name="suffix" value=".jsp"/>
+	</bean>
+	<!-- velocity环境配置 -->
+	<bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+	    <!-- velocity配置文件路径  或者直接用velocityProperties属性 -->
+	    <property name="configLocation" value="classpath:velocity.properties"/>
+	    <!-- velocity模板路径 -->
+	    <property name="resourceLoaderPath" value="/WEB-INF/view/"/>
+	</bean>
+	<!-- velocity视图解析器 -->
+	<bean id="velocityViewResolver" class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
+	    <property name="order" value="0"/>
+	    <property name="contentType" value="text/html;charset=UTF-8"/>
+	    <property name="cache" value="true"/>
+	    <property name="suffix" value=".vm"/>
+	    <property name="layoutUrl" value="layout/layout.vm"/>
+	    <property name="exposeSpringMacroHelpers" value="true" /><!--是否使用spring对宏定义的支持-->
+	    <property name="exposeSessionAttributes" value="true" /><!--是否开放request属性-->
+	    <property name="requestContextAttribute" value="request"/><!--request属性引用名称-->
+	    <property name="toolboxConfigLocation" value="/WEB-INF/toolbox.xml"/>
+	</bean>
+    
 </beans>  

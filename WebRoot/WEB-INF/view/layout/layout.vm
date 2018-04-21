@@ -2,6 +2,7 @@
 <head>
     <title>$!page_title</title>
     #parse("default/header.vm")
+     <script type="text/javascript" src="${rc.contextPath}/static/javascript/jquery-3.3.1/jquery-3.3.1.min.js"></script>
 </head>
 <body>
 

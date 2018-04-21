@@ -12,7 +12,7 @@ import com.hbjc.domain.Users;
 import com.hbjc.service.UsersService;
 
 @Controller
-@RequestMapping(value="/regist")
+@RequestMapping(value="/user")
 public class Controllers {
 	private Logger logger = Logger.getLogger(getClass());  
 	
@@ -24,6 +24,12 @@ public class Controllers {
 		ModelAndView mv = new ModelAndView("success");
 		logger.info("addUsers:"+users.getUserName());
 		service.saveUsers(users);
+		return mv;
+	}
+	
+	@RequestMapping(value="/regist",method=RequestMethod.GET)
+	public ModelAndView  regist(Model model){
+		ModelAndView mv = new ModelAndView("/user/regist");
 		return mv;
 	}
 	

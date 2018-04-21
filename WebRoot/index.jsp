@@ -15,29 +15,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
-	<scipt type="text/javascript" src="/static/javascript/jquery-3.3.1/jquery-3.3.1.min.js"></scipt>
-  	
   </head>
   
   <body style="text-align: center;" >
-    <form action="/regist/addUsers.do" method="post">
-    	<table>
-    		<tr>
-    			<th colspan="2" align="center">注册</th>
-    		</tr>
-    		<tr>
-    			<td>用户名</td><td><input id="userName" name="userName" value="" onclick="aa()"/> </td>
-    		</tr>
-    		<tr>
-    			<td>密码</td><td><input id="password" name="password" value=""/></td>
-    		</tr>
-    		<tr>
-    			<td colspan="2" align="center"><button type="submit" value="确认注册">确认注册</button> </td>
-    		</tr>
-    	</table>
-    </form>
+    <a href="<%=basePath%>/user/regist.do">注册</a>
   </body>
 </html>

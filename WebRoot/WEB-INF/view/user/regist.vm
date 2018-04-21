@@ -1,0 +1,21 @@
+<html>
+  <head></head>
+  <body>
+   	 <form action="${rc.contextPath}/user/addUsers.do" method="post">
+    	<table>
+    		<tr>
+    			<th colspan="2" align="center">注册</th>
+    		</tr>
+    		<tr>
+    			<td>用户名</td><td><input id="userName" name="userName" value="" onclick="aa()"/> </td>
+    		</tr>
+    		<tr>
+    			<td>密码</td><td><input id="password" name="password" value=""/></td>
+    		</tr>
+    		<tr>
+    			<td colspan="2" align="center"><button type="submit" value="确认注册">确认注册</button> </td>
+    		</tr>
+    	</table>
+    </form>
+  </body>
+</html>

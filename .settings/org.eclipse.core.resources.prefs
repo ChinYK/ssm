@@ -2,6 +2,7 @@ eclipse.preferences.version=1
 encoding//WebRoot/WEB-INF/view/default/header.vm=UTF-8
 encoding//WebRoot/WEB-INF/view/layout/layout.vm=UTF-8
 encoding//WebRoot/WEB-INF/view/success.vm=UTF-8
+encoding//WebRoot/index.jsp=UTF-8
 encoding//config/log4j.properties=UTF-8
 encoding//config/velocity.properties=UTF-8
 encoding/<project>=UTF-8

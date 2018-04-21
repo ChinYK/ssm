@@ -1,3 +1,4 @@
+
 package com.hbjc.controller;
 
 import org.apache.log4j.Logger;
@@ -12,18 +13,18 @@ import com.hbjc.domain.Users;
 import com.hbjc.service.UsersService;
 
 @Controller
-@RequestMapping(value = "/regist")
-public class Controllers {
+@RequestMapping(value = "/login")
+public class LoginController {
 	private Logger logger = Logger.getLogger(getClass());
 
 	@Autowired
 	private UsersService service;
 
-	@RequestMapping(value="/addUsers",method=RequestMethod.POST)
-	public ModelAndView  save(Model model,Users users){
-		int indicator = service.saveUsers(users);
+	@RequestMapping(value="/loginIn",method=RequestMethod.POST)
+	public ModelAndView  login(Model model,Users users){
+		String indicator = service.checkUser(users);
 		ModelAndView mv ;
-        if(indicator > 0 )
+        if(indicator.equals("1"))
         {
 	         mv= new ModelAndView("success");
         }

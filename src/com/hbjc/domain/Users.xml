@@ -10,9 +10,15 @@
 	<select id="getAll" resultMap="UserMap">
 		select * from Users
 	</select>
-	
+
 	<insert id="insert" parameterType="com.hbjc.domain.Users" useGeneratedKeys="true" keyProperty="id">
-		insert into Users (user_Name, password) 
+		insert into Users (user_Name, password)
 		values(#{userName},#{password})
 	</insert>
+
+
+	<select id="checkUser" parameterType="com.hbjc.domain.Users" resultType = "java.lang.Integer">
+	    select count(1) from Users where user_name = #{userName}  and password = #{password}
+	</select>
+
 </mapper>

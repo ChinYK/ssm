@@ -6,8 +6,10 @@ import com.hbjc.domain.Users;
 
 
 public interface UsersService {
-	
+
 	public List<Users> getAll();
-	
+
 	public int saveUsers(Users users);
+
+	public String checkUser(Users user);
 }

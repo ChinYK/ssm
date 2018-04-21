@@ -11,20 +11,31 @@ import com.hbjc.service.UsersService;
 
 @Service("userService")
 public class UserServiceImpl implements UsersService {
-	@Autowired  
+	@Autowired
 	private UsersDao usersDao;
 
-	public void setDao(UsersDao dao) {//Í¨¹ıset·½·¨×¢ÈëÊôĞÔ
+	public void setDao(UsersDao dao) {//Í¨ï¿½ï¿½setï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		this.usersDao = dao;
 	}
-	
-	 @Override  
-    public List<Users> getAll() {  
-        return usersDao.getAll();  
-    }  
+
+	 @Override
+    public List<Users> getAll() {
+        return usersDao.getAll();
+    }
 
 	public int saveUsers(Users users) {
 		return usersDao.insert(users);
 	}
-	
+
+	@Override
+	public String checkUser(Users user) {
+		// TODO Auto-generated method stub
+		int flag = usersDao.checkUser(user);
+		if(flag>0)//ä¸èƒ½åŒæ—¶åˆ¤æ–­ä¸ºç©ºå’Œ1ï¼Œå¦åˆ™ä¸ºç©ºæ—¶ä¼šæŠ¥é”™
+		{
+			return "1";
+		}
+		return "0";
+	}
+
 }

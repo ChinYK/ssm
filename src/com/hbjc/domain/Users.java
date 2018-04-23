@@ -3,7 +3,7 @@ package com.hbjc.domain;
 public class Users {
 	private String id;
 	private String userName;
-	private Double password;
+	private String password;
 	public String getId() {
 		return id;
 	}
@@ -16,12 +16,12 @@ public class Users {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	public Double getPassword() {
+	public String getPassword() {
 		return password;
 	}
-	public void setPassword(Double password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
+
+
 }

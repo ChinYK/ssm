@@ -6,9 +6,11 @@ import com.hbjc.domain.Users;
 
 
 public interface UsersDao {
-	
+
 	int insert(Users user);
-	
+
 	List<Users> getAll();
-	
+
+	int checkUser(Users user);
+
 }

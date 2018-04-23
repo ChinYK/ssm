@@ -1,3 +1,4 @@
+
 package com.hbjc.service.impl;
 
 import java.util.List;
@@ -11,20 +12,30 @@ import com.hbjc.service.UsersService;
 
 @Service("userService")
 public class UserServiceImpl implements UsersService {
-	@Autowired  
+	@Autowired
 	private UsersDao usersDao;
 
 	public void setDao(UsersDao dao) {
 		this.usersDao = dao;
 	}
-	
-	 @Override  
-    public List<Users> getAll() {  
-        return usersDao.getAll();  
-    }  
+
+	 @Override
+    public List<Users> getAll() {
+        return usersDao.getAll();
+    }
 
 	public int saveUsers(Users users) {
 		return usersDao.insert(users);
 	}
-	
+
+	@Override
+	public String checkUser(Users user) {
+		int flag = usersDao.checkUser(user);
+		if(flag>0)//不能同时判断为空和1，否则为空时会报错
+		{
+			return "1";
+		}
+		return "0";
+	}
+
 }

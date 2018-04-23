@@ -14,7 +14,7 @@ public class UserServiceImpl implements UsersService {
 	@Autowired  
 	private UsersDao usersDao;
 
-	public void setDao(UsersDao dao) {//通过set方法注入属性
+	public void setDao(UsersDao dao) {
 		this.usersDao = dao;
 	}
 	

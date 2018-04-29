@@ -14,7 +14,7 @@ import com.hbjc.service.UsersService;
 
 @Controller
 @RequestMapping(value = "/login")
-public class LoginController {
+public class LoginController extends BaseController{
 	private Logger logger = Logger.getLogger(getClass());
 
 	@Autowired
@@ -26,13 +26,11 @@ public class LoginController {
 		ModelAndView mv ;
         if(indicator.equals("1"))
         {
-	         mv= new ModelAndView("success");
+	         return success();
         }
         else
         {
-             mv = new ModelAndView("error");
+             return error();
         }
-		logger.info("addUsers:"+users.getUserName());
-		return mv;
 	}
 }

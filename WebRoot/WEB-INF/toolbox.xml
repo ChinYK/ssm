@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <toolbox>
-   <tool>
+	<tool>
 		<key>stringUtils</key>
 		<scope>application</scope>
 		<class>org.apache.commons.lang.StringUtils</class>
+	</tool>
+	<tool>
+		<key>link</key>
+		<scope>application</scope>
+		<class>org.apache.velocity.tools.view.LinkTool</class>
+	</tool>
+	<tool>
+		<key>HelloWorldTool</key>
+		<scope>application</scope>
+		<class>com.hbjc.util.HelloWorld</class>
+	</tool>
+	<tool>
+		<key>serverUrl</key>
+		<scope>application</scope>
+		<class>com.hbjc.util.GetValueUtil</class>
 	</tool>
 </toolbox>

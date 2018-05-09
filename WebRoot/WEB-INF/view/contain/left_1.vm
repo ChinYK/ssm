@@ -1,0 +1,69 @@
+###set($layout = '')
+<script type="text/javascript">
+        $(document).ready(function () {
+            setupLeftMenu();
+        });
+</script>
+<style>
+ p,h,table,th,td,a{font-family:"SimSun";}
+
+.menu li a{display: block;
+    line-height: 42px;
+    color: #455a69;
+    padding-left: 30px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: '宋体';
+    vertical-align: baseline;}
+.submenu li a{font-weight: 400;
+    padding-left: 45px;
+    font-size: 12px;
+    cursor: pointer;
+    line-height: 30px;
+    display: block;
+    color: #455a69;
+    text-decoration: none;
+    font-family: '宋体';
+    vertical-align: baseline;}
+#box-menu{border:1px solid #D1DEE4;border-radius: 5px 5px 0px 0px;}
+#section-menu{border:1px solid #D1DEE4;border-radius: 5px 5px 0px 0px;}
+
+</style>
+<div class="grid_2">
+	<div class="box sidemenu" id="box-menu">
+		<div class="block" id="section-menu">
+			<ul class="section menu" id="leftul">
+				<li><a class="menuitem">个人信息</a>
+					<ul class="submenu">
+						<li><a href="#getAppServer()/index/default.htm?p=1.1">个人信息</a> </li>
+						<li><a href="#getAppServer()//modifyPasswd/modifyPasswd.htm?p=1.2">修改密码</a> </li>
+					</ul>
+				</li>
+				<li><a class="menuitem">价格审批单管理</a>
+					<ul class="submenu">
+						<li><a href="#getAppServer()/priceApproval/add.htm?p=2.1">价格审批单录入</a> </li>
+						<li><a href="#getAppServer()/scmClassTrademark/batchAdd.htm?p=2.2">价格审批单导入</a> </li>
+						<li><a href="#getAppServer()/priceApproval/search.htm?p=2.3">价格审批单查询</a> </li>
+					</ul>
+				</li>
+				<li><a class="menuitem">价格分析</a>
+					<ul class="submenu">
+						<li><a href="#getAppServer()/scmClassTrademark/Class_Trademark.htm?p=3.1">价格审批查询</a> </li>
+					</ul>
+				</li>
+					#if( $r_userAgent_price.tradeAccount == "10100050")
+				<li><a class="menuitem" >用户管理</a>
+					<ul class="submenu" >
+						<li><a href="?p=4.1">用户查询</a> </li>
+						<li><a href="?p=4.2">新增用户</a> </li>
+
+							<li><a href="#getAppServer()//priceAccountUnits/account_units_list.htm?p=4.3">权限管理</a> </li>
+
+					</ul>
+				</li>
+						#end
+			</ul>
+		</div>
+	</div>
+</div>

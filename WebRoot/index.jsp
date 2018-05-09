@@ -33,7 +33,7 @@ String basePath_1 = request.getScheme()+"://"+request.getServerName()+":"+reques
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>宇宙无敌数据管理公司</title>
-<link rel="stylesheet" type="text/css" href="css/styles.css">
+<link rel="stylesheet" type="text/css" href="<%=basePath%>/style/css/styles.css">
 </head>
 <body>
 <div class="htmleaf-container">
@@ -67,8 +67,8 @@ String basePath_1 = request.getScheme()+"://"+request.getServerName()+":"+reques
 </div>
 </body>
 </html>
-
-<script src="<%=basePath%>/js/jquery-2.1.1.min.js" type="text/javascript"></script>
+<script src="<%=basePath%>/javascript/jquery-3.3.1/jquery-3.3.1.min.js" type="text/javascript"></script>
+<!--  <script src="<%=basePath%>/javascript/js/jquery-2.1.1.min.js" type="text/javascript"></script>-->
 <script type ="text/javascript">
 
 	$('#login-button').click(function(event) {

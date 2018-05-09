@@ -14,23 +14,23 @@ import com.hbjc.service.UsersService;
 @Controller
 @RequestMapping(value="/regist")
 public class Controllers {
-	private Logger logger = Logger.getLogger(getClass());  
-	
+	private Logger logger = Logger.getLogger(getClass());
+
 	@Autowired
 	private UsersService service;
-	
+
 	@RequestMapping(value="/addUsers",method=RequestMethod.POST)
 	public ModelAndView  save(Model model,Users users){
-		ModelAndView mv = new ModelAndView("success");
+		ModelAndView mv = new ModelAndView("first");
 		logger.info("addUsers:"+users.getUserName());
 		service.saveUsers(users);
 		return mv;
 	}
-	
+
 	@RequestMapping(value="/regist",method=RequestMethod.GET)
 	public ModelAndView  regist(Model model){
 		ModelAndView mv = new ModelAndView("/user/regist");
 		return mv;
 	}
-	
+
 }

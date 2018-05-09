@@ -26,7 +26,7 @@ public class LoginController {
 		ModelAndView mv ;
         if(indicator.equals("1"))
         {
-	         mv= new ModelAndView("success");
+	         mv= new ModelAndView("first");
         }
         else
         {

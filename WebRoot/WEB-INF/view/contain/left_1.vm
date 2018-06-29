@@ -30,26 +30,28 @@
 #section-menu{border:1px solid #D1DEE4;border-radius: 5px 5px 0px 0px;}
 
 </style>
-<div class="grid_2">
+##<div class="top" style="background-color:#F5F5F5;height:1000px;">
+<div class="grid_2" style="background-color:#F5F5F5;height:1000px;">
 	<div class="box sidemenu" id="box-menu">
-		<div class="block" id="section-menu">
+		<div class="block" id="section-menu" style="background-color:#F5F5F5">
 			<ul class="section menu" id="leftul">
 				<li><a class="menuitem">个人信息</a>
 					<ul class="submenu">
-						<li><a href="#getAppServer()/index/default.htm?p=1.1">个人信息</a> </li>
-						<li><a href="#getAppServer()//modifyPasswd/modifyPasswd.htm?p=1.2">修改密码</a> </li>
+						<li><a href="$!{serverUrl.getServerUrl()}/user/userInfo.do?p=1.1">个人信息</a> </li>
+						<li><a href="$!{serverUrl.getServerUrl()}//modifyPasswd/modifyPasswd.htm?p=1.2">修改密码</a> </li>
+						<li><a href="$!{serverUrl.getServerUrl()}//user/userInfo.do?p=1.2">会员管理</a> </li>
 					</ul>
 				</li>
-				<li><a class="menuitem">价格审批单管理</a>
+				<li><a class="menuitem">环保管理</a>
 					<ul class="submenu">
-						<li><a href="#getAppServer()/priceApproval/add.htm?p=2.1">价格审批单录入</a> </li>
-						<li><a href="#getAppServer()/scmClassTrademark/batchAdd.htm?p=2.2">价格审批单导入</a> </li>
-						<li><a href="#getAppServer()/priceApproval/search.htm?p=2.3">价格审批单查询</a> </li>
+						<li><a href="$!{serverUrl.getServerUrl()}/priceApproval/add.htm?p=2.1">价格审批单录入</a> </li>
+						<li><a href="$!{serverUrl.getServerUrl()}/scmClassTrademark/batchAdd.htm?p=2.2">价格审批单导入</a> </li>
+						<li><a href="$!{serverUrl.getServerUrl()}/priceApproval/search.htm?p=2.3">价格审批单查询</a> </li>
 					</ul>
 				</li>
-				<li><a class="menuitem">价格分析</a>
+				<li><a class="menuitem">环保分析</a>
 					<ul class="submenu">
-						<li><a href="#getAppServer()/scmClassTrademark/Class_Trademark.htm?p=3.1">价格审批查询</a> </li>
+						<li><a href="$!{serverUrl.getServerUrl()}/scmClassTrademark/Class_Trademark.htm?p=3.1">价格审批查询</a> </li>
 					</ul>
 				</li>
 					#if( $r_userAgent_price.tradeAccount == "10100050")
@@ -67,3 +69,4 @@
 		</div>
 	</div>
 </div>
+

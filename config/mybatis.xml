@@ -64,7 +64,8 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
         <!--  可以是任意 的 DataSource,其配置应该和其它 Spring 数据库连接是一样的。-->
         <property name="dataSource" ref="dataSource" />
         <!-- 自动扫描entity目录, 省掉Configuration.xml里的手工配置 -->
-        <property name="mapperLocations" value="classpath:com/hbjc/domain/*.xml" />
+        <!-- <property name="mapperLocations" value="classpath:com/hbjc/domain/*.xml" /> -->
+        <property name="configLocation" value="classpath:mybatis-config.xml" />
     </bean>
     <!--
     Mybatis MapperScannerConfigurer 自动扫描 将Mapper接口生成代理注入到Spring

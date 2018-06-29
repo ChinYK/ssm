@@ -21,7 +21,10 @@ public class UserServiceImpl implements UsersService {
 
 	 @Override
     public List<Users> getAll() {
-        return usersDao.getAll();
+		 //PageHelper.startPage(1, 10);
+		List<Users> list = usersDao.getAll();
+        //return usersDao.getAll();
+		return list;
     }
 
 	public int saveUsers(Users users) {

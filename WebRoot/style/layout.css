@@ -9,7 +9,8 @@ body {
 	font-size: 11px;
 	padding: 0 0 0px;
 	/* background:#2E5E79;*/
-	background:#00A0D2;
+	background:#00A0D2;    /*这是头部以下的背景颜色*/
+	background:transparent;
 }
 
 /* commons
@@ -40,7 +41,8 @@ a:hover {
 .container_16 {
 	padding-top:10px;
 	/* background:#2E5E79; */
-	background:#00A0D2;
+	/*background:#00A0D2; *//*这是四周边框外边缘的背景颜色
+	background:transparent;
 }
 
 
@@ -70,7 +72,8 @@ h1 a {
 	text-align:left;
 	padding:2em 1em 1.6em 1em;
 	margin-bottom:0;
-	background:#00A0D2;
+	/*background:#00A0D2;/*这是头部背景色*/
+	background:transparent;
 }
 
 .header-repeat{background:url(../images/common/header-repeat.jpg) repeat-x;}

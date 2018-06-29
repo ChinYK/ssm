@@ -2,7 +2,7 @@
  <div class="grid_12 header-repeat">
 	<div id="branding">
 		<div class="floatleft" >
-			<img src="$!{serverUrl.getServerUrl()}/images/logo.jpg" width="200" height="100" alt="Logo" style="padding-top:-15px"/>
+			<img src="$!{serverUrl.getServerUrl()}/images/logo.png" width="200" height="100" alt="Logo" style="padding-top:-15px"/>
 		</div>
 		<div class="floatright" style="width:200px">
 			<div class="" style="margin-left:0px;float:left;width:200px;">

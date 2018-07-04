@@ -5,9 +5,6 @@
 <configuration>
 <!-- 全局参数 -->
 
-
-
-
 <mappers>
 
       <mapper resource="com/hbjc/domain/Users.xml" />

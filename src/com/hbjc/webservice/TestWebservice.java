@@ -7,10 +7,11 @@ package com.hbjc.webservice;
  * @version v1.0
  */
 
-import java.util.List;
-import com.hbjc.domain.Users;
 import javax.jws.WebService;
-@WebService// @WebService用于定义webservice对外开放的接口
+import javax.jws.soap.SOAPBinding;
+import javax.jws.soap.SOAPBinding.Style;
+@WebService
+@SOAPBinding(style = Style.RPC)
 public interface TestWebservice {
-    public List<Users> getUcUser(String query);
+    public Boolean getUcUser(String query) throws Exception ;
 }

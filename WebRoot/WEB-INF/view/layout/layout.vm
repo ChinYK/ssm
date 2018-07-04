@@ -36,15 +36,15 @@
   <body>
 	 <body >
     	<div class="container_12" >
-    		#parse('/contain/header_1.vm')
+    		#parse('/contain/header.vm')
     		<div class="clear"></div>
-    		#parse('/contain/left_1.vm')
+    		#parse('/contain/left.vm')
     		<div class="grid_10" >
     			$!screen_content
     		</div>
     	</div>
     	<div class="clear"></div>
-    	#parse('/contain/footer_1.vm')
+    	#parse('/contain/footer.vm')
     </body>
 
 

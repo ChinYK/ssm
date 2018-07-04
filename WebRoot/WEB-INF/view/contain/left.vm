@@ -38,33 +38,29 @@
 				<li><a class="menuitem">个人信息</a>
 					<ul class="submenu">
 						<li><a href="$!{serverUrl.getServerUrl()}/user/userInfo.do?p=1.1">个人信息</a> </li>
-						<li><a href="$!{serverUrl.getServerUrl()}//modifyPasswd/modifyPasswd.htm?p=1.2">修改密码</a> </li>
+						<li><a href="#">修改密码</a> </li>
 						<li><a href="$!{serverUrl.getServerUrl()}//user/userInfo.do?p=1.2">会员管理</a> </li>
 					</ul>
 				</li>
 				<li><a class="menuitem">环保管理</a>
 					<ul class="submenu">
-						<li><a href="$!{serverUrl.getServerUrl()}/priceApproval/add.htm?p=2.1">价格审批单录入</a> </li>
-						<li><a href="$!{serverUrl.getServerUrl()}/scmClassTrademark/batchAdd.htm?p=2.2">价格审批单导入</a> </li>
-						<li><a href="$!{serverUrl.getServerUrl()}/priceApproval/search.htm?p=2.3">价格审批单查询</a> </li>
-					</ul>
+						<li><a href="#">环保数据查询</a> </li>
+						<li><a href="#">价格审批单导入</a> </li>					</ul>
 				</li>
 				<li><a class="menuitem">环保分析</a>
 					<ul class="submenu">
-						<li><a href="$!{serverUrl.getServerUrl()}/scmClassTrademark/Class_Trademark.htm?p=3.1">价格审批查询</a> </li>
+						<li><a href="#">环保数据查询</a> </li>
 					</ul>
 				</li>
-					#if( $r_userAgent_price.tradeAccount == "10100050")
+					##if( $r_userAgent_price.tradeAccount == "10100050")
 				<li><a class="menuitem" >用户管理</a>
 					<ul class="submenu" >
-						<li><a href="?p=4.1">用户查询</a> </li>
-						<li><a href="?p=4.2">新增用户</a> </li>
-
-							<li><a href="#getAppServer()//priceAccountUnits/account_units_list.htm?p=4.3">权限管理</a> </li>
-
+						##<li><a href="?p=4.1">用户查询</a> </li>
+						##<li><a href="?p=4.2">新增用户</a> </li>
+						<li><a href="#getAppServer()//priceAccountUnits/account_units_list.htm?p=4.3">权限管理</a> </li>
 					</ul>
 				</li>
-						#end
+					##	#end
 			</ul>
 		</div>
 	</div>

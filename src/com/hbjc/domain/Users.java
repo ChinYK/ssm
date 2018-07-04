@@ -4,6 +4,7 @@ public class Users {
 	private String id;
 	private String userName;
 	private String password;
+	private String area;
 	public String getId() {
 		return id;
 	}
@@ -21,6 +22,18 @@ public class Users {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	/**
+	 * @return the area
+	 */
+	public String getArea() {
+		return area;
+	}
+	/**
+	 * @param area the area to set
+	 */
+	public void setArea(String area) {
+		this.area = area;
 	}
 
 

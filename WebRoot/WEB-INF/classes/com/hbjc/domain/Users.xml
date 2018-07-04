@@ -6,6 +6,7 @@
 		<id property="id" column="id"/>
 		<result property="userName" column="user_name"/>
 		<result property="password" column="password"/>
+		<result property="area"    column="region" />
 	</resultMap>
 	<select id="getAll" resultMap="UserMap">
 		select * from Users
@@ -24,5 +25,12 @@
 	<select id="getMyAll" resultMap="UserMap">
 		select * from Users
 	</select>
+
+	<select id="getUserArea" resultType="com.hbjc.domain.UserArea">
+		select region area , count(1) count, count(1)/(select count(1) from users) bili
+		from users
+		group by region
+	</select>
+
 
 </mapper>

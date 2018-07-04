@@ -1,6 +1,8 @@
 package com.hbjc.controller;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,6 +13,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hbjc.domain.Users;
+import com.hbjc.domain.UserArea;
 import com.hbjc.service.UsersService;
 /**
  * com.hbjc.controller
@@ -30,6 +33,9 @@ public class UserController {
     public String UserInfo(HttpServletRequest req , HttpServletResponse res, ModelMap modelAndView){
             List<Users> users = service.getAll();
             modelAndView.addAttribute("users", users);
+            List <UserArea> pieChartList =new ArrayList<UserArea>();
+            pieChartList=service.getUserArea();
+            modelAndView.addAttribute("pieChartList",pieChartList);
     		return "/user/userInfo";
     }
 

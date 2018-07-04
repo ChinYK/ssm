@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hbjc.dao.UsersDao;
+import com.hbjc.domain.UserArea;
 import com.hbjc.domain.Users;
 import com.hbjc.service.UsersService;
 
@@ -39,6 +40,16 @@ public class UserServiceImpl implements UsersService {
 			return "1";
 		}
 		return "0";
+	}
+
+	/* (non-Javadoc)
+	 * @see com.hbjc.service.UsersService#getUserArea()
+	 */
+	@Override
+	public List<UserArea> getUserArea() {
+		List<UserArea> list = usersDao.getUserArea();
+
+		return list;
 	}
 
 }

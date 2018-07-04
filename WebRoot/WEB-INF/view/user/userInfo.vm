@@ -6,18 +6,15 @@
 
 <div  style = "heigth:100px;">
     <table >
-		<tr><td>用户id</td><td>用户名</td><td>用户密码</td></tr>
+		<tr><td>用户id</td><td>用户名</td><td>用户区域</td></tr>
 		#foreach($user in $users)
-        <tr><td>${user.id}</td><td>${user.userName}</td><td>${user.password}</td></tr>
+        <tr><td>${user.id}</td><td>${user.userName}</td><td>${user.area}</td></tr>
         #end
     </table>
 </div>
-<div  style="width: 3%;height:400px;float:left; display:inline"> &nbsp;&nbsp;&nbsp; </div>
-		<div  style="width: 40%;height:100%;float:left; display:inline">
-			<div id="pieChart"  style="border-style:dashed;border-color:rgb(111,111,111);border-width:1px;width: 100%;height:300%;"></div>
-		</div>
-	</div>
-	<br/>
+<div  style="width: 3%;height:200px;float:left; display:inline"> &nbsp;&nbsp;&nbsp; </div>
+<div  style="width: 40%;float:left; display:inline">
+	<div id="pieChart"  style="border-style:dashed;border-color:rgb(111,111,111);border-width:1px;width: 100%;height:550px;"></div>
 </div>
 
 
@@ -29,165 +26,46 @@
 	table{width:100%;}
 	tr{height:24px;}
 </style>
-	<style>
-	.hx li{	float:left;	}
-	a {    font-family: "微软雅黑"; }
-	#biaoge table{border: solid thin #fff}
-	#biaoge table tr td{border: solid thin #fff}
-	.tc tr td{border: solid thin #000;text-align:center;}
-
-	#yuefen{margin:20px 0;font-weight:bold;font-family:"微软雅黑";}
-	#yuefen a{border-radius: 5px;background:rgb(233,104,107);padding:6px 8px;cursor:pointer;width:200px;margin:5px 0.4%;font-weight:400;}
-	#yuefen a.selected{background:rgb(186,53,55);padding:6px 8px;cursor:pointer;width:200px;margin:5px 0.4%;color:#fff;}
-
-	#gangchang{margin:20px 0;font-weight:bold;font-family:"微软雅黑";}
-	#gangchang a{border-radius: 5px;background:rgb(244,177,131);padding:6px 8px;cursor:pointer;width:200px;margin:5px 0.4%;font-weight:400;}
-	#gangchang a.selected{background:rgb(197,90,17);padding:6px 8px;cursor:pointer;width:200px;margin:5px 0.4%;color:#fff;}
-
-	#pinzhong{margin:20px 0;font-weight:bold;font-family:"微软雅黑";}
-	#pinzhong a{border-radius: 5px;background:rgb(157,195,230);padding:6px 8px;cursor:pointer;width:200px;margin:5px  0.4%;font-weight:400;}
-	#pinzhong a.selected{background:rgb(46,117,182);padding:6px 8px;cursor:pointer;width:200px;margin:5px  0.4%;color:#fff;}
-
-
-	table {	border-collapse:collapse;border:1px solid #666666;}
-    th{color: #1B548D; border: 1px solid #d1d7e0;BORDER-RIGHT: #d1d7e0 1px solid;font-weight: bold; background-color: rgb(230, 240, 243);width:100px;TEXT-ALIGN: center; font-family:"SimSun";FONT-SIZE: 13px; VERTICAL-ALIGN: middle; }
-    td{	height:20px; border: 1px solid #d1d7e0;BORDER-RIGHT: #d1d7e0 1px solid;width:100px;TEXT-ALIGN: center; font-family:"SimSun";COLOR: black; FONT-SIZE: 13px; VERTICAL-ALIGN: middle; FONT-WEIGHT: normal; }
-
-</style>
-
 <script type="text/javascript">
-/*
-  柱状图展示
-*/
-
-var xzhou = "$xzhou";
-var zhuanPrice = "$zhuanPrice";
-var ziPrice = "$ziPrice";
-var fenPrice = "$fenPrice";
-var chuPrice = "$chuPrice";
-var lineChart = echarts.init(document.getElementById('lineChart'));
-var option1 = {
-            title : {
-            	text : '$month月 $fillUnit $varieties 各销售主体价格对比',
-            	x : 'center'
-            },
-            tooltip: {
-               trigger: 'axis',
-			    axisPointer: {
-                    type: 'shadow'
-                }
-            },
-			color : [ '#FAA833', '#1F95D4', '#E84B25','#802B94' ],
-			toolbox: {
-                show: true,
-                orient: 'vertical',
-                left: 'right',
-                top: 'center',
-                feature: {
-                    mark: {show: true},
-                    dataView: {show: true, readOnly: false},
-                    magicType: {show: true, type: ['line', 'bar', 'stack', 'tiled']},
-                    restore: {show: true},
-                    saveAsImage: {show: true}
-                }
-            },
-            calculable: true,
-            legend: {
-                data: ['专业公司','子公司','分公司','出口'],
-        		top:'88%'
-            },
-            grid: {
-        		top:'20%',
-                left: '10%',
-                right: '10%',
-                bottom: '15%',
-				containLabel: true
-            },
-            xAxis: {
-                type: 'category',
-                axisTick: {show: false},
-               // data:xzhou.split(",")
-				data: ["销售主体"]
-           },
-           yAxis: {
-        		name:"元/吨",
-        		min:0,
-        		minInterval:100
-            },
-            dataZoom: [
-                {
-                    type: 'inside',
-                    start: 10,
-                    end: 100
-                }
-            ],
-            series: [
-        		{
-                    name: '专业公司',
-                    type: 'bar',
-					barGap: 1,
-					barWidth:45,
-                    data: [zhuanPrice]
-
-                },
-        		{
-                    name: '子公司',
-                    type: 'bar',
-					barWidth:45,
-					barGap: 1,
-                    data: [ziPrice]
-
-                },
-        		{
-                    name: '分公司',
-                    type: 'bar',
-					barWidth:45,
-					barGap: 1,
-                    data: [fenPrice]
-
-                },
-        		{
-                    name: '出口',
-                    type: 'bar',
-					barWidth:45,
-					barGap: 1,
-                    data:[chuPrice]//注意，此数据类型是数组
-
-                }
-            ]
-		};
-lineChart.setOption(option1);
 /*
 饼形图展示
 */
 var pieChart = echarts.init(document.getElementById('pieChart'));
 var	option2 = {
 		title : {
-			text : '销量占比',
+			text : '区域占比',
 			x : 'center'
 		},
 
 		legend : {
-			data : [ '专业公司', '子公司', '分公司' ,'出口'],
+			data : [ '华北', '华东', '华南' ,'西北','西南', '东北' , '华东' ,'华中'],
 			bottom : '0'
 		},
 		color : [
 		#foreach($item in $pieChartList)
-			#if($item.saleUnitType =='专业公司'&& $item.totalWeight!=0.0)
+			#if($item.area =='华北')
 			    '#FAA833',
-			#elseif($item.saleUnitType =='子公司'&& $item.totalWeight!=0.0)
+			#elseif($item.area =='华东')
 			    '#1F95D4',
-			#elseif($item.saleUnitType =='分公司'&& $item.totalWeight!=0.0)
+			#elseif($item.area =='华南')
 	            '#E84B25',
-			#elseif($item.saleUnitType =='出口'&& $item.totalWeight!=0.0)
-			     '#802B94'
+			#elseif($item.area =='西北')
+			     '#802B94',
+		    #elseif($item.area =='西南')
+	              '#1F95D1',
+		    #elseif($item.area =='东北')
+	             '#1F95D2',
+		    #elseif($item.area =='华东')
+	             '#1F95D5',
+		    #elseif($item.area =='华中')
+	             '#1F95D6',
 			#end
 		#end
 		],
 		tooltip : {
 			trigger : 'item',
 			//trigger: 'axis',
-			formatter : "{b} <br/> 发货量 : {c}吨 <br> 占比 : {d}% "
+			formatter : "{b} <br/> 区域 : {c}个<br> 占比 : {d}% "
 		},
 		series : [ {
 			type : 'pie',
@@ -197,10 +75,7 @@ var	option2 = {
 
 			data :[
 			    #foreach($item in $pieChartList)
-        			#if($item.totalWeight==0.0)
-        			#else
-          				{value : '$!item.totalWeight',name :'$!item.saleUnitType'},
-        			#end
+          			{value : '$!item.count',name :'$!item.area'},
 			    #end
 			],
 			itemStyle : {
@@ -216,58 +91,7 @@ pieChart.setOption(option2);
 
 window.onresize = function () {
 
-    lineChart.resize();
 	pieChart.resize();
 };
 
-function select(key, value) {
-    var myKey = key;
-	var spanClass = $(value).attr("class");
-	//alert(spanClass);
-	if(spanClass == "selected") {
-	    return ;
-	   if (key == "varieties" || key== "fillUnit")
-	   {
-	      $("#searchForm").find("select[name="+key+"]").val("");
-	   }else{
-		  $("#searchForm").find("input[name="+key+"]").val("");
-		}
-		$("#searchForm").attr("action", "#getAppServer()/priceAnalysis/saleUnitType.htm");
-		$("#searchForm").submit();
-	} else {
-	    if (key == "varieties" || key== "fillUnit")
-		{
-
-              $("#searchForm").find("select[name="+key+"]").val($(value).html());
-		}else{
-		    if(key=="dangyuemonth")
-			{
-              $("#dangyue").attr("class","selected");
-			  $("#shangyue").attr("class","");
-			}
-			else
-			{
-              $("#dangyue").attr("class","");
-			  $("#shangyue").attr("class","selected");
-			}
-		    $("#searchForm").find("input[name="+key+"]").val($(value).html());
-			$("#key").attr("value",myKey);
-		}
-		$("#searchForm").attr("action", "#getAppServer()/priceAnalysis/saleUnitType.htm");
-		$("#searchForm").submit();
-	}
-
-
-
-}
-
 </script>
-<style type="text/css">
-td , th{white-space: nowrap;}
-p,h,table,th,td,a,option{font-family:"SimSun";}
-#ths th{
-	color: #1B548D;
-	 font-weight: bold;
-    background-color: rgb(230, 240, 243);
-}
-</style>

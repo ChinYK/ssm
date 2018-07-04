@@ -32,4 +32,11 @@ public class LoginController extends BaseController{
              return error();
         }
 	}
+	@RequestMapping(value="/logout")
+	public String logout(Model model,Users users){
+
+
+		return "redirect:/" ;
+
+	}
 }

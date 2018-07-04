@@ -63,7 +63,7 @@ String basePath_1 = request.getScheme()+"://"+request.getServerName()+":"+reques
 	</div>
 </div>
 <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';color:#000000">
-<h1>宇宙无敌数据管理系统</h1>
+<h1>演示系统</h1>
 </div>
 </body>
 </html>

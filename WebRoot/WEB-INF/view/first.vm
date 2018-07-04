@@ -1,6 +1,6 @@
 
      <div class="welcome">
-     <img src="$!{serverUrl.getServerUrl()}/images/welcome.jpeg" ></img>
+     <img src="$!{serverUrl.getServerUrl()}/images/welcome.jpg" ></img>
      </div>
      </div>
 	 	 </div>

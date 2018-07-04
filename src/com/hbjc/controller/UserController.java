@@ -44,6 +44,53 @@ public class UserController {
     	  List <UserArea> pieChartList =new ArrayList<UserArea>();
           pieChartList=service.getUserArea();
           modelAndView.addAttribute("pieChartList",pieChartList);
+          String huabei = "0";
+          String huadong= "0";
+          String huanan = "0";
+          String xibei = "0";
+          String xinan = "0";
+          String dongbei = "0";
+          String huazhong = "0";
+          for(UserArea item : pieChartList)
+          {
+        	  if(item.getArea().equals("华北"))
+        	  {
+        		  huabei = item.getCount();
+        	  }
+        	  if(item.getArea().equals("华东"))
+        	  {
+        		  huadong = item.getCount();
+        	  }
+        	  if(item.getArea().equals("华南"))
+        	  {
+        		  huanan = item.getCount();
+        	  }
+        	  if(item.getArea().equals("西北"))
+        	  {
+        		  xibei = item.getCount();
+        	  }
+        	  if(item.getArea().equals("西南"))
+        	  {
+        		  xinan = item.getCount();
+        	  }
+        	  if(item.getArea().equals("东北"))
+        	  {
+        		  dongbei = item.getCount();
+        	  }
+        	  if(item.getArea().equals("华中"))
+        	  {
+        		  huazhong = item.getCount();
+        	  }
+          }
+          modelAndView.addAttribute("huabei", huabei);
+          modelAndView.addAttribute("huadong", huadong);
+          modelAndView.addAttribute("huanan", huanan);
+          modelAndView.addAttribute("xibei", xibei);
+          modelAndView.addAttribute("xinan", xinan);
+          modelAndView.addAttribute("dongbei", dongbei);
+          modelAndView.addAttribute("huazhong", huazhong);
+          List<String> xzhou = new ArrayList<String>();
+
           return "/user/userAreaAnalysis";
 
     }

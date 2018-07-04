@@ -33,10 +33,22 @@ public class UserController {
     public String UserInfo(HttpServletRequest req , HttpServletResponse res, ModelMap modelAndView){
             List<Users> users = service.getAll();
             modelAndView.addAttribute("users", users);
-            List <UserArea> pieChartList =new ArrayList<UserArea>();
-            pieChartList=service.getUserArea();
-            modelAndView.addAttribute("pieChartList",pieChartList);
+
     		return "/user/userInfo";
     }
+
+    @RequestMapping(value="/userAreaAnalysis")
+    public String userAreaAnalysis(HttpServletRequest req, HttpServletResponse res, ModelMap modelAndView)
+    {
+
+    	  List <UserArea> pieChartList =new ArrayList<UserArea>();
+          pieChartList=service.getUserArea();
+          modelAndView.addAttribute("pieChartList",pieChartList);
+          return "/user/userAreaAnalysis";
+
+    }
+
+
+
 
 }

@@ -12,11 +12,6 @@
         #end
     </table>
 </div>
-<div  style="width: 3%;height:200px;float:left; display:inline"> &nbsp;&nbsp;&nbsp; </div>
-<div  style="width: 40%;float:left; display:inline">
-	<div id="pieChart"  style="border-style:dashed;border-color:rgb(111,111,111);border-width:1px;width: 100%;height:550px;"></div>
-</div>
-
 
 
 </body>
@@ -26,72 +21,3 @@
 	table{width:100%;}
 	tr{height:24px;}
 </style>
-<script type="text/javascript">
-/*
-饼形图展示
-*/
-var pieChart = echarts.init(document.getElementById('pieChart'));
-var	option2 = {
-		title : {
-			text : '区域占比',
-			x : 'center'
-		},
-
-		legend : {
-			data : [ '华北', '华东', '华南' ,'西北','西南', '东北' , '华东' ,'华中'],
-			bottom : '0'
-		},
-		color : [
-		#foreach($item in $pieChartList)
-			#if($item.area =='华北')
-			    '#FAA833',
-			#elseif($item.area =='华东')
-			    '#1F95D4',
-			#elseif($item.area =='华南')
-	            '#E84B25',
-			#elseif($item.area =='西北')
-			     '#802B94',
-		    #elseif($item.area =='西南')
-	              '#1F95D1',
-		    #elseif($item.area =='东北')
-	             '#1F95D2',
-		    #elseif($item.area =='华东')
-	             '#1F95D5',
-		    #elseif($item.area =='华中')
-	             '#1F95D6',
-			#end
-		#end
-		],
-		tooltip : {
-			trigger : 'item',
-			//trigger: 'axis',
-			formatter : "{b} <br/> 区域 : {c}个<br> 占比 : {d}% "
-		},
-		series : [ {
-			type : 'pie',
-			radius : '65%',
-			selectedMode : 'single',
-			center : [ '50%', '50%' ],
-
-			data :[
-			    #foreach($item in $pieChartList)
-          			{value : '$!item.count',name :'$!item.area'},
-			    #end
-			],
-			itemStyle : {
-				emphasis : {
-					shadowBlur : 10,
-					shadowOffsetX : 0
-				}
-			}
-		} ]
-
-	};
-pieChart.setOption(option2);
-
-window.onresize = function () {
-
-	pieChart.resize();
-};
-
-</script>

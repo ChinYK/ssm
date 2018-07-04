@@ -1,0 +1,24 @@
+##﻿#set($layout = '')
+ <div class="grid_12 header-repeat">
+	<div id="branding">
+		<div class="floatleft" >
+			<img src="$!{serverUrl.getServerUrl()}/images/logo.png" width="200" height="100" alt="Logo" style="padding-top:-15px"/>
+		</div>
+		<div class="floatright" style="width:200px">
+			<div class="" style="margin-left:0px;float:left;width:200px;">
+				<ul class="inline-ul floatleft">
+					<li>欢迎您 $r_userAgent_price.account</li>
+					<li><a href="$!{serverUrl.getServerUrl()}//logout.htm">退出</a></li>
+				</ul>
+
+				##<span class="small grey">上次登录: $!dateUtil.convertDateToString("yyyy-MM-dd HH:mm:ss", $!r_userAgent_price.lastLoginTime)</span>
+			</div>
+		</div>
+		<div class="clear">
+		</div>
+	</div>
+ </div>
+<style>
+ p,h,table,th,td,a,span,li{font-family:"SimSun";}
+
+</style>

@@ -1,0 +1,26 @@
+##set($layout = '')
+<div id="site_info">
+     <p>Copyright &copy;2018 宇宙无敌数据管理公司All Rights Reserved</p>
+</div>
+<style type="text/css">
+	#site_info{
+	color:#fff;
+	/* background:#204562; */
+ 	background:#3796DE;
+	border-top:1px solid #1d3b53;
+	left: 0;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+    z-index: 100;
+    text-align:center
+
+}
+#site_info p{line-height:35px; margin-bottom:0px;  background: white; color:#000000;}
+#site_info a {
+	color:#9ab6cc;
+}
+#site_info a:hover {
+	color:#000;
+}
+</style>

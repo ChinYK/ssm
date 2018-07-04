@@ -1,0 +1,18 @@
+<body>
+
+<div >
+    <table >
+		<tr><td>用户id</td><td>用户名</td><td>用户密码</td></tr>
+		#foreach($user in $users)
+        <tr><td>${user.id}</td><td>${user.userName}</td><td>${user.password}</td></tr>
+        #end
+    </table>
+</div>
+</body>
+<style type="text/css">
+	body{backgroud-color:white;}
+	td,th{border:1px solid black;}
+	table{width:100%;}
+	tr{height:24px;}
+
+</style>

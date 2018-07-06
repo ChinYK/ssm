@@ -14,6 +14,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
+import com.hbjc.service.XmlDataService;
 import com.hbjc.util.Decompression;
 import com.hbjc.util.UrlUtil;
 import com.hbjc.util.XmlReader;
@@ -33,6 +34,9 @@ public class TestWebserviceImpl implements TestWebservice {
 
 	@Value("${downloadPath}")
 	private String downloadPath;
+	
+	@Autowired
+	private XmlDataService xmlDataService;
 	
 	private final Logger log = Logger.getLogger(TestWebserviceImpl.class);
 	
@@ -54,9 +58,7 @@ public class TestWebserviceImpl implements TestWebservice {
 				list.addAll(XmlReader.readXml("", downloadPath+file.getName()));
 			}
 		}
-		for(String s:list){
-			System.out.println(s);
-		}
+		xmlDataService.jdbcPerBatchInsert(list);
 		return true;
 	}
 }

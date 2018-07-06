@@ -20,7 +20,7 @@ public class Controllers extends BaseController{
 	@Autowired
 	private UsersService service;
 
-	@RequestMapping(value="/addUsers",method=RequestMethod.POST)
+	@RequestMapping(value="/addUsers",method=RequestMethod.GET)
 	public ModelAndView  save(Model model,Users users){
 		try{
 			service.saveUsers(users);

@@ -44,7 +44,8 @@ String basePath_1 = request.getScheme()+"://"+request.getServerName()+":"+reques
 			<form class="form" action = "regist/addUsers.do"  id = "form" method = "POST">
 				<input type="text" placeholder="Username" id = "userName" name ="userName">
 				<input type="password" placeholder="Password" id="password" name = "password">
-				<button type="button" id="login-button" style="width:20%">登录</button><button style = "width:20%" type="submit" id="login-button">注册</button>
+				<button type="button" id="login-button" style="width:20%">登录</button>
+				<a style = "width:10%;height:30px;font-size:12px;margin-top:-30px;" href="#" id="zhuce">注册</a>
 			</form>
 		</div>
 

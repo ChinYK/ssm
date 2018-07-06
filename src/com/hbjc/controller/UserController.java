@@ -53,6 +53,7 @@ public class UserController {
           String huazhong = "0";
           for(UserArea item : pieChartList)
           {
+        	 if(item.getArea()!= null){
         	  if(item.getArea().equals("华北"))
         	  {
         		  huabei = item.getCount();
@@ -81,6 +82,7 @@ public class UserController {
         	  {
         		  huazhong = item.getCount();
         	  }
+        	 }
           }
           modelAndView.addAttribute("huabei", huabei);
           modelAndView.addAttribute("huadong", huadong);

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hbjc.dao.UcUsersMapper">
+  <resultMap id="BaseResultMap" type="com.hbjc.domain.UcUsers">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_name" jdbcType="VARCHAR" property="user_name" />
+    <result column="user_account" jdbcType="VARCHAR" property="user_account" />
+    <result column="user_password" jdbcType="VARCHAR" property="user_password" />
+    <result column="is_admin" jdbcType="TINYINT" property="is_admin" />
+    <result column="parent_user_id" jdbcType="BIGINT" property="parent_user_id" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmt_create" />
+    <result column="gmt_modify" jdbcType="TIMESTAMP" property="gmt_modify" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_name, user_account, user_password, is_admin, parent_user_id, gmt_create, 
+    gmt_modify
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from uc_users
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from uc_users
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.hbjc.domain.UcUsers">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into uc_users (user_name, user_account, user_password, 
+      is_admin, parent_user_id, gmt_create, 
+      gmt_modify)
+    values (#{user_name,jdbcType=VARCHAR}, #{user_account,jdbcType=VARCHAR}, #{user_password,jdbcType=VARCHAR}, 
+      #{is_admin,jdbcType=TINYINT}, #{parent_user_id,jdbcType=BIGINT}, #{gmt_create,jdbcType=TIMESTAMP}, 
+      #{gmt_modify,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hbjc.domain.UcUsers">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into uc_users
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="user_name != null">
+        user_name,
+      </if>
+      <if test="user_account != null">
+        user_account,
+      </if>
+      <if test="user_password != null">
+        user_password,
+      </if>
+      <if test="is_admin != null">
+        is_admin,
+      </if>
+      <if test="parent_user_id != null">
+        parent_user_id,
+      </if>
+      <if test="gmt_create != null">
+        gmt_create,
+      </if>
+      <if test="gmt_modify != null">
+        gmt_modify,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="user_name != null">
+        #{user_name,jdbcType=VARCHAR},
+      </if>
+      <if test="user_account != null">
+        #{user_account,jdbcType=VARCHAR},
+      </if>
+      <if test="user_password != null">
+        #{user_password,jdbcType=VARCHAR},
+      </if>
+      <if test="is_admin != null">
+        #{is_admin,jdbcType=TINYINT},
+      </if>
+      <if test="parent_user_id != null">
+        #{parent_user_id,jdbcType=BIGINT},
+      </if>
+      <if test="gmt_create != null">
+        #{gmt_create,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmt_modify != null">
+        #{gmt_modify,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hbjc.domain.UcUsers">
+    update uc_users
+    <set>
+      <if test="user_name != null">
+        user_name = #{user_name,jdbcType=VARCHAR},
+      </if>
+      <if test="user_account != null">
+        user_account = #{user_account,jdbcType=VARCHAR},
+      </if>
+      <if test="user_password != null">
+        user_password = #{user_password,jdbcType=VARCHAR},
+      </if>
+      <if test="is_admin != null">
+        is_admin = #{is_admin,jdbcType=TINYINT},
+      </if>
+      <if test="parent_user_id != null">
+        parent_user_id = #{parent_user_id,jdbcType=BIGINT},
+      </if>
+      <if test="gmt_create != null">
+        gmt_create = #{gmt_create,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmt_modify != null">
+        gmt_modify = #{gmt_modify,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hbjc.domain.UcUsers">
+    update uc_users
+    set user_name = #{user_name,jdbcType=VARCHAR},
+      user_account = #{user_account,jdbcType=VARCHAR},
+      user_password = #{user_password,jdbcType=VARCHAR},
+      is_admin = #{is_admin,jdbcType=TINYINT},
+      parent_user_id = #{parent_user_id,jdbcType=BIGINT},
+      gmt_create = #{gmt_create,jdbcType=TIMESTAMP},
+      gmt_modify = #{gmt_modify,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

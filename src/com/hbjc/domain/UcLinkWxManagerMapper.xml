@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hbjc.dao.UcLinkWxManagerMapper">
+  <resultMap id="BaseResultMap" type="com.hbjc.domain.UcLinkWxManager">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="link_wx_id" jdbcType="BIGINT" property="link_wx_id" />
+    <result column="weixin" jdbcType="VARCHAR" property="weixin" />
+    <result column="weighting" jdbcType="BIGINT" property="weighting" />
+    <result column="uv_num" jdbcType="BIGINT" property="uv_num" />
+    <result column="pv_num" jdbcType="BIGINT" property="pv_num" />
+    <result column="is_online" jdbcType="TINYINT" property="is_online" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmt_create" />
+    <result column="gmt_modify" jdbcType="TIMESTAMP" property="gmt_modify" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, link_wx_id, weixin, weighting, uv_num, pv_num, is_online, gmt_create, gmt_modify
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from uc_link_wx_manager
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from uc_link_wx_manager
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.hbjc.domain.UcLinkWxManager">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into uc_link_wx_manager (link_wx_id, weixin, weighting, 
+      uv_num, pv_num, is_online, 
+      gmt_create, gmt_modify)
+    values (#{link_wx_id,jdbcType=BIGINT}, #{weixin,jdbcType=VARCHAR}, #{weighting,jdbcType=BIGINT}, 
+      #{uv_num,jdbcType=BIGINT}, #{pv_num,jdbcType=BIGINT}, #{is_online,jdbcType=TINYINT}, 
+      #{gmt_create,jdbcType=TIMESTAMP}, #{gmt_modify,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hbjc.domain.UcLinkWxManager">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into uc_link_wx_manager
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="link_wx_id != null">
+        link_wx_id,
+      </if>
+      <if test="weixin != null">
+        weixin,
+      </if>
+      <if test="weighting != null">
+        weighting,
+      </if>
+      <if test="uv_num != null">
+        uv_num,
+      </if>
+      <if test="pv_num != null">
+        pv_num,
+      </if>
+      <if test="is_online != null">
+        is_online,
+      </if>
+      <if test="gmt_create != null">
+        gmt_create,
+      </if>
+      <if test="gmt_modify != null">
+        gmt_modify,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="link_wx_id != null">
+        #{link_wx_id,jdbcType=BIGINT},
+      </if>
+      <if test="weixin != null">
+        #{weixin,jdbcType=VARCHAR},
+      </if>
+      <if test="weighting != null">
+        #{weighting,jdbcType=BIGINT},
+      </if>
+      <if test="uv_num != null">
+        #{uv_num,jdbcType=BIGINT},
+      </if>
+      <if test="pv_num != null">
+        #{pv_num,jdbcType=BIGINT},
+      </if>
+      <if test="is_online != null">
+        #{is_online,jdbcType=TINYINT},
+      </if>
+      <if test="gmt_create != null">
+        #{gmt_create,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmt_modify != null">
+        #{gmt_modify,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hbjc.domain.UcLinkWxManager">
+    update uc_link_wx_manager
+    <set>
+      <if test="link_wx_id != null">
+        link_wx_id = #{link_wx_id,jdbcType=BIGINT},
+      </if>
+      <if test="weixin != null">
+        weixin = #{weixin,jdbcType=VARCHAR},
+      </if>
+      <if test="weighting != null">
+        weighting = #{weighting,jdbcType=BIGINT},
+      </if>
+      <if test="uv_num != null">
+        uv_num = #{uv_num,jdbcType=BIGINT},
+      </if>
+      <if test="pv_num != null">
+        pv_num = #{pv_num,jdbcType=BIGINT},
+      </if>
+      <if test="is_online != null">
+        is_online = #{is_online,jdbcType=TINYINT},
+      </if>
+      <if test="gmt_create != null">
+        gmt_create = #{gmt_create,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmt_modify != null">
+        gmt_modify = #{gmt_modify,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hbjc.domain.UcLinkWxManager">
+    update uc_link_wx_manager
+    set link_wx_id = #{link_wx_id,jdbcType=BIGINT},
+      weixin = #{weixin,jdbcType=VARCHAR},
+      weighting = #{weighting,jdbcType=BIGINT},
+      uv_num = #{uv_num,jdbcType=BIGINT},
+      pv_num = #{pv_num,jdbcType=BIGINT},
+      is_online = #{is_online,jdbcType=TINYINT},
+      gmt_create = #{gmt_create,jdbcType=TIMESTAMP},
+      gmt_modify = #{gmt_modify,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

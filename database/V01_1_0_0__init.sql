@@ -74,18 +74,3 @@ create table uc_link_wx_manager
    constraint PK_UC_LINK_WX_MANAGER primary key (id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

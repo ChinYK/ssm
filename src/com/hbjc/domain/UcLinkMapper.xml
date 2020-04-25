@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hbjc.dao.UcLinkMapper">
+  <resultMap id="BaseResultMap" type="com.hbjc.domain.UcLink">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="link_name" jdbcType="VARCHAR" property="link_name" />
+    <result column="link_url" jdbcType="VARCHAR" property="link_url" />
+    <result column="link_group_id" jdbcType="BIGINT" property="link_group_id" />
+    <result column="link_group_name" jdbcType="VARCHAR" property="link_group_name" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmt_create" />
+    <result column="gmt_modify" jdbcType="TIMESTAMP" property="gmt_modify" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, link_name, link_url, link_group_id, link_group_name, gmt_create, gmt_modify
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from uc_link
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from uc_link
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.hbjc.domain.UcLink">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into uc_link (link_name, link_url, link_group_id, 
+      link_group_name, gmt_create, gmt_modify
+      )
+    values (#{link_name,jdbcType=VARCHAR}, #{link_url,jdbcType=VARCHAR}, #{link_group_id,jdbcType=BIGINT}, 
+      #{link_group_name,jdbcType=VARCHAR}, #{gmt_create,jdbcType=TIMESTAMP}, #{gmt_modify,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.hbjc.domain.UcLink">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into uc_link
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="link_name != null">
+        link_name,
+      </if>
+      <if test="link_url != null">
+        link_url,
+      </if>
+      <if test="link_group_id != null">
+        link_group_id,
+      </if>
+      <if test="link_group_name != null">
+        link_group_name,
+      </if>
+      <if test="gmt_create != null">
+        gmt_create,
+      </if>
+      <if test="gmt_modify != null">
+        gmt_modify,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="link_name != null">
+        #{link_name,jdbcType=VARCHAR},
+      </if>
+      <if test="link_url != null">
+        #{link_url,jdbcType=VARCHAR},
+      </if>
+      <if test="link_group_id != null">
+        #{link_group_id,jdbcType=BIGINT},
+      </if>
+      <if test="link_group_name != null">
+        #{link_group_name,jdbcType=VARCHAR},
+      </if>
+      <if test="gmt_create != null">
+        #{gmt_create,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmt_modify != null">
+        #{gmt_modify,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hbjc.domain.UcLink">
+    update uc_link
+    <set>
+      <if test="link_name != null">
+        link_name = #{link_name,jdbcType=VARCHAR},
+      </if>
+      <if test="link_url != null">
+        link_url = #{link_url,jdbcType=VARCHAR},
+      </if>
+      <if test="link_group_id != null">
+        link_group_id = #{link_group_id,jdbcType=BIGINT},
+      </if>
+      <if test="link_group_name != null">
+        link_group_name = #{link_group_name,jdbcType=VARCHAR},
+      </if>
+      <if test="gmt_create != null">
+        gmt_create = #{gmt_create,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmt_modify != null">
+        gmt_modify = #{gmt_modify,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hbjc.domain.UcLink">
+    update uc_link
+    set link_name = #{link_name,jdbcType=VARCHAR},
+      link_url = #{link_url,jdbcType=VARCHAR},
+      link_group_id = #{link_group_id,jdbcType=BIGINT},
+      link_group_name = #{link_group_name,jdbcType=VARCHAR},
+      gmt_create = #{gmt_create,jdbcType=TIMESTAMP},
+      gmt_modify = #{gmt_modify,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

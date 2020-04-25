@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hbjc.dao.UcLinkWeixinMapper">
+  <resultMap id="BaseResultMap" type="com.hbjc.domain.UcLinkWeixin">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_id" jdbcType="BIGINT" property="user_id" />
+    <result column="user_name" jdbcType="VARCHAR" property="user_name" />
+    <result column="group_id" jdbcType="BIGINT" property="group_id" />
+    <result column="group_name" jdbcType="VARCHAR" property="group_name" />
+    <result column="link_id" jdbcType="BIGINT" property="link_id" />
+    <result column="link_name" jdbcType="VARCHAR" property="link_name" />
+    <result column="link_url" jdbcType="VARCHAR" property="link_url" />
+    <result column="is_online" jdbcType="TINYINT" property="is_online" />
+    <result column="online_time" jdbcType="TIMESTAMP" property="online_time" />
+    <result column="offline_time" jdbcType="TIMESTAMP" property="offline_time" />
+    <result column="copy_num" jdbcType="BIGINT" property="copy_num" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmt_create" />
+    <result column="gmt_modify" jdbcType="TIMESTAMP" property="gmt_modify" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, user_name, group_id, group_name, link_id, link_name, link_url, is_online, 
+    online_time, offline_time, copy_num, gmt_create, gmt_modify
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from uc_link_weixin
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from uc_link_weixin
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.hbjc.domain.UcLinkWeixin">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into uc_link_weixin (user_id, user_name, group_id, 
+      group_name, link_id, link_name, 
+      link_url, is_online, online_time, 
+      offline_time, copy_num, gmt_create, 
+      gmt_modify)
+    values (#{user_id,jdbcType=BIGINT}, #{user_name,jdbcType=VARCHAR}, #{group_id,jdbcType=BIGINT}, 
+      #{group_name,jdbcType=VARCHAR}, #{link_id,jdbcType=BIGINT}, #{link_name,jdbcType=VARCHAR}, 
+      #{link_url,jdbcType=VARCHAR}, #{is_online,jdbcType=TINYINT}, #{online_time,jdbcType=TIMESTAMP}, 
+      #{offline_time,jdbcType=TIMESTAMP}, #{copy_num,jdbcType=BIGINT}, #{gmt_create,jdbcType=TIMESTAMP}, 
+      #{gmt_modify,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hbjc.domain.UcLinkWeixin">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into uc_link_weixin
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="user_id != null">
+        user_id,
+      </if>
+      <if test="user_name != null">
+        user_name,
+      </if>
+      <if test="group_id != null">
+        group_id,
+      </if>
+      <if test="group_name != null">
+        group_name,
+      </if>
+      <if test="link_id != null">
+        link_id,
+      </if>
+      <if test="link_name != null">
+        link_name,
+      </if>
+      <if test="link_url != null">
+        link_url,
+      </if>
+      <if test="is_online != null">
+        is_online,
+      </if>
+      <if test="online_time != null">
+        online_time,
+      </if>
+      <if test="offline_time != null">
+        offline_time,
+      </if>
+      <if test="copy_num != null">
+        copy_num,
+      </if>
+      <if test="gmt_create != null">
+        gmt_create,
+      </if>
+      <if test="gmt_modify != null">
+        gmt_modify,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="user_id != null">
+        #{user_id,jdbcType=BIGINT},
+      </if>
+      <if test="user_name != null">
+        #{user_name,jdbcType=VARCHAR},
+      </if>
+      <if test="group_id != null">
+        #{group_id,jdbcType=BIGINT},
+      </if>
+      <if test="group_name != null">
+        #{group_name,jdbcType=VARCHAR},
+      </if>
+      <if test="link_id != null">
+        #{link_id,jdbcType=BIGINT},
+      </if>
+      <if test="link_name != null">
+        #{link_name,jdbcType=VARCHAR},
+      </if>
+      <if test="link_url != null">
+        #{link_url,jdbcType=VARCHAR},
+      </if>
+      <if test="is_online != null">
+        #{is_online,jdbcType=TINYINT},
+      </if>
+      <if test="online_time != null">
+        #{online_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offline_time != null">
+        #{offline_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="copy_num != null">
+        #{copy_num,jdbcType=BIGINT},
+      </if>
+      <if test="gmt_create != null">
+        #{gmt_create,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmt_modify != null">
+        #{gmt_modify,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hbjc.domain.UcLinkWeixin">
+    update uc_link_weixin
+    <set>
+      <if test="user_id != null">
+        user_id = #{user_id,jdbcType=BIGINT},
+      </if>
+      <if test="user_name != null">
+        user_name = #{user_name,jdbcType=VARCHAR},
+      </if>
+      <if test="group_id != null">
+        group_id = #{group_id,jdbcType=BIGINT},
+      </if>
+      <if test="group_name != null">
+        group_name = #{group_name,jdbcType=VARCHAR},
+      </if>
+      <if test="link_id != null">
+        link_id = #{link_id,jdbcType=BIGINT},
+      </if>
+      <if test="link_name != null">
+        link_name = #{link_name,jdbcType=VARCHAR},
+      </if>
+      <if test="link_url != null">
+        link_url = #{link_url,jdbcType=VARCHAR},
+      </if>
+      <if test="is_online != null">
+        is_online = #{is_online,jdbcType=TINYINT},
+      </if>
+      <if test="online_time != null">
+        online_time = #{online_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offline_time != null">
+        offline_time = #{offline_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="copy_num != null">
+        copy_num = #{copy_num,jdbcType=BIGINT},
+      </if>
+      <if test="gmt_create != null">
+        gmt_create = #{gmt_create,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmt_modify != null">
+        gmt_modify = #{gmt_modify,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hbjc.domain.UcLinkWeixin">
+    update uc_link_weixin
+    set user_id = #{user_id,jdbcType=BIGINT},
+      user_name = #{user_name,jdbcType=VARCHAR},
+      group_id = #{group_id,jdbcType=BIGINT},
+      group_name = #{group_name,jdbcType=VARCHAR},
+      link_id = #{link_id,jdbcType=BIGINT},
+      link_name = #{link_name,jdbcType=VARCHAR},
+      link_url = #{link_url,jdbcType=VARCHAR},
+      is_online = #{is_online,jdbcType=TINYINT},
+      online_time = #{online_time,jdbcType=TIMESTAMP},
+      offline_time = #{offline_time,jdbcType=TIMESTAMP},
+      copy_num = #{copy_num,jdbcType=BIGINT},
+      gmt_create = #{gmt_create,jdbcType=TIMESTAMP},
+      gmt_modify = #{gmt_modify,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

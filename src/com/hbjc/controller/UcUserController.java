@@ -32,7 +32,7 @@ public class UcUserController extends BaseController {
 	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
 	public String addUser(Model model, UcUsers ucUsers) {
 		ucUserService.addUcUser(ucUsers);
-		return "user/success";
+		return "/user/success";
 	}
 
 	@RequestMapping(value = "/{userId}/delete", method = RequestMethod.DELETE)
@@ -51,7 +51,7 @@ public class UcUserController extends BaseController {
 	public String getUserById(@PathVariable Long userId, Model model) {
 		UcUsers ucUsers = ucUserService.getUcUsers(userId);
 		model.addAttribute("user", ucUsers);
-		return "user/detail";
+		return "/user/detail";
 	}
 
 	@RequestMapping(value = "/list", method = RequestMethod.POST)

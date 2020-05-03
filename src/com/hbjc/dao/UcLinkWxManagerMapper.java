@@ -1,5 +1,9 @@
 package com.hbjc.dao;
 
+import java.util.List;
+
+import com.github.pagehelper.Page;
+import com.hbjc.domain.UcLinkWeixin;
 import com.hbjc.domain.UcLinkWxManager;
 
 public interface UcLinkWxManagerMapper {
@@ -14,4 +18,8 @@ public interface UcLinkWxManagerMapper {
     int updateByPrimaryKeySelective(UcLinkWxManager record);
 
     int updateByPrimaryKey(UcLinkWxManager record);
+    
+    List<UcLinkWxManager> selectUcLinkWxManagers();
+    
+    Page<UcLinkWxManager> pageUcLinkwxManagers(String weixin);
 }

@@ -1,6 +1,10 @@
 package com.hbjc.dao;
 
+import java.util.List;
+
+import com.github.pagehelper.Page;
 import com.hbjc.domain.UcLinkWeixin;
+import com.hbjc.domain.UcUsers;
 
 public interface UcLinkWeixinMapper {
     int deleteByPrimaryKey(Long id);
@@ -14,4 +18,8 @@ public interface UcLinkWeixinMapper {
     int updateByPrimaryKeySelective(UcLinkWeixin record);
 
     int updateByPrimaryKey(UcLinkWeixin record);
+    
+    List<UcLinkWeixin> selectUcLinkWeinxins();
+    
+    Page<UcLinkWeixin> pageUcLinkweixins(String user_name);
 }

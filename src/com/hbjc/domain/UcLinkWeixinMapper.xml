@@ -196,4 +196,18 @@
       gmt_modify = #{gmt_modify,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  
+  <select id ="selectUcLinkWeinxins" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from uc_link_weixin
+  </select>
+  
+  <select id="pageUcLinkweixins" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from uc_link_weixin
+    where user_name like concat('%',#{user_name}, '%')
+  </select>
+  
 </mapper>

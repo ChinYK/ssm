@@ -136,4 +136,21 @@
       gmt_modify = #{gmt_modify,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  
+  
+  <select id="selectUcLinkWxManagers" resultMap="BaseResultMap">
+   select 
+    <include refid="Base_Column_List" />
+    from uc_link_wx_manager
+ 
+  </select>
+  
+  
+   <select id ="pageUcLinkwxManagers" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from uc_link_wx_manager
+    where weixin like concat('%',#{weixin}, '%')
+   </select>
+  
 </mapper>

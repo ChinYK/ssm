@@ -1,5 +1,8 @@
 package com.hbjc.dao;
 
+import java.util.List;
+
+import com.github.pagehelper.Page;
 import com.hbjc.domain.UcUsers;
 
 public interface UcUsersMapper {
@@ -14,4 +17,8 @@ public interface UcUsersMapper {
     int updateByPrimaryKeySelective(UcUsers record);
 
     int updateByPrimaryKey(UcUsers record);
+    
+    List<UcUsers> selectUcUsers();
+    
+    Page<UcUsers> pageUsers(String userName);
 }

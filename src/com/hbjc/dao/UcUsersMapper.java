@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.github.pagehelper.Page;
 import com.hbjc.domain.UcUsers;
+import com.hbjc.domain.Users;
 
 public interface UcUsersMapper {
     int deleteByPrimaryKey(Long id);
@@ -21,4 +22,7 @@ public interface UcUsersMapper {
     List<UcUsers> selectUcUsers();
     
     Page<UcUsers> pageUsers(String userName);
+    
+	int checkUser(Users user);
+
 }

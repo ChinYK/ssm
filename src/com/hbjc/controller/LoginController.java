@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.hbjc.domain.Users;
+import com.hbjc.service.UcUserSerivce;
 import com.hbjc.service.UsersService;
 
 @Controller
@@ -17,11 +18,11 @@ public class LoginController extends BaseController{
 	private Logger logger = Logger.getLogger(getClass());
 
 	@Autowired
-	private UsersService service;
+	private UcUserSerivce ucUserSerivce;
 
 	@RequestMapping(value="/loginIn",method=RequestMethod.POST)
 	public ModelAndView  login(Model model,Users users){
-		String indicator = service.checkUser(users);
+		String indicator = ucUserSerivce.checkUser(users);
 		ModelAndView mv ;
         if(indicator.equals("1"))
         {

@@ -140,4 +140,8 @@
     where  user_name like concat('%',#{userName}, '%'); 
   </select>
   
+  <select id="checkUser" parameterType="com.hbjc.domain.UcUsers" resultType = "java.lang.Integer">
+	 select count(1) from uc_users where user_name = #{user_name}  and user_password = #{user_password}
+  </select>
+  
 </mapper>

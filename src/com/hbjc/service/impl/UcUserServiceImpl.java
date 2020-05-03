@@ -12,6 +12,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.hbjc.dao.UcUsersMapper;
 import com.hbjc.domain.UcUsers;
+import com.hbjc.domain.Users;
 import com.hbjc.domain.page.UcUsersPage;
 import com.hbjc.service.UcUserSerivce;
 
@@ -64,6 +65,17 @@ public class UcUserServiceImpl implements UcUserSerivce {
 		});
 		pageInfo.setList(users2);
 		return pageInfo;
+	}
+
+	@Override
+	public String checkUser(Users user) {
+		// TODO Auto-generated method stub
+		int flag = ucUsersMapper.checkUser(user);
+		if(flag>0)//不能同时判断为空和1，否则为空时会报错
+		{
+			return "1";
+		}
+		return "0";
 	}
 
 }

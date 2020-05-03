@@ -5,6 +5,7 @@ import java.util.List;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
 import com.hbjc.domain.UcUsers;
+import com.hbjc.domain.Users;
 import com.hbjc.domain.page.UcUsersPage;
 
 public interface UcUserSerivce {
@@ -20,5 +21,8 @@ public interface UcUserSerivce {
 	List<UcUsers> listUsers();
 	
 	PageInfo pageUcUser(UcUsersPage page) throws Exception;
+	
+    String checkUser(Users user);
+
 
 }
